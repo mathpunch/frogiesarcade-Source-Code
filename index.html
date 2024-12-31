@@ -106,10 +106,12 @@
 
         // Handle the back button functionality
         window.onpopstate = function(event) {
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameIframe = document.getElementById('gameIframe');
+
             if (event.state && event.state.iframeOpen) {
-                const iframeContainer = document.getElementById('iframeContainer');
                 iframeContainer.style.display = 'none';
-                document.getElementById('gameIframe').src = '';
+                gameIframe.src = '';
             }
         };
 
