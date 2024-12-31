@@ -133,7 +133,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    border-radius: 0; /* Change to square */
 }
 
 /* New Animated Background */
