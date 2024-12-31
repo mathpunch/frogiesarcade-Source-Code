@@ -116,6 +116,8 @@
                 // Ensure the iframe is hidden if there's no state
                 iframeContainer.style.display = 'none';
                 gameIframe.src = '';
+                // Reload the page to ensure the home page is displayed
+                location.reload();
             }
         };
 
