@@ -126,14 +126,8 @@ footer {
     background-color: red;
     color: white;
     border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+    padding: 10px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0; /* Change to square */
 }
 
 /* New Animated Background */
@@ -145,7 +139,7 @@ footer {
     width: 1px;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: -42vw -4vh 0px 0px #fff,25vw -41vh 0px 0px #fff,-20vw 49vh 0px 1px #fff,5vw 40vh 1px 1px #fff,29vw 19vh 1px 0px #fff,-44vw -13vh 0px 0px #fff,46vw 41vh 0px 1px #fff,-3vw -45vh 0px 1px [...]
+    box-shadow: -42vw -4vh 0px 0px #fff,25vw -41vh 0px 0px #fff,-20vw 49vh 0px 1px #fff,5vw 40vh 1px 1px #fff,29vw 19vh 1px 0px #fff,-44vw -13vh 0px 0px #fff,46vw 41vh 0px 1px #fff,-3vw -45vh 0px 1px #fff,33vw -47vh 0px 1px #fff,5vw -35vh 0px 0px #fff,7vw -20vh 0px 0px #fff,31vw 43vh 0px 0px #fff,10vw -25vh 0px 1px #fff,-42vw 29vh 0px 1px #fff,14vw 11vh 1px 0px #fff,-20vw -9vh 0px 1px #fff,-19vw -16vh 0px 0px #fff,-48vw -50vh 0px 0px #fff,-13vw 39vh 1px 0px #fff,-18vw 2vh 1px 0px #fff,-20vw -37vh 0px 1px #fff,2vw -5vh 0px 1px #fff,-12vw 49vh 0px 0px #fff,12vw -47vh 0px 1px #fff,-15vw 44vh 1px 1px #fff,6vw -36vh 1px 1px #fff,19vw 37vh 1px 1px #fff,20vw 42vh 0px 1px #fff,16vw 39vh 0px 0px #fff,11vw -33vh 1px 1px #fff,41vw -9vh 0px 0px #fff,-38vw 49vh 1px 0px #fff,1vw 25vh 0px 0px #fff,29vw -25vh 1px 1px #fff,41vw 19vh 0px 0px #fff,8vw 4vh 0px 1px #fff;
     animation: zoom 16s alternate infinite; 
 }
 
