@@ -116,8 +116,9 @@
                 // Ensure the iframe is hidden if there's no state
                 iframeContainer.style.display = 'none';
                 gameIframe.src = '';
-                // Change the document title to indicate the home page
-                document.title = 'ixl - Home';
+                // Ensure the home page elements are displayed
+                document.querySelector('.button-container').style.display = 'block';
+                document.querySelector('h1').style.display = 'block';
             }
         };
 
@@ -126,6 +127,9 @@
             button.addEventListener('click', function() {
                 const gameUrl = this.getAttribute('data-url');
                 loadGameInIframe(gameUrl);
+                // Hide home page elements when a game is loaded
+                document.querySelector('.button-container').style.display = 'none';
+                document.querySelector('h1').style.display = 'none';
             });
         });
 
