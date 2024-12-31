@@ -109,8 +109,14 @@
             const iframeContainer = document.getElementById('iframeContainer');
             const gameIframe = document.getElementById('gameIframe');
 
-            iframeContainer.style.display = 'none';
-            gameIframe.src = '';
+            if (event.state && event.state.iframeOpen) {
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+            } else {
+                // Ensure the iframe is hidden if there's no state
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+            }
         };
 
         // Attach event listeners to buttons
@@ -119,6 +125,17 @@
                 const gameUrl = this.getAttribute('data-url');
                 loadGameInIframe(gameUrl);
             });
+        });
+
+        // Ensure the iframe is hidden on initial load if there's no state
+        window.addEventListener('load', function() {
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameIframe = document.getElementById('gameIframe');
+
+            if (!history.state || !history.state.iframeOpen) {
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+            }
         });
     </script>
 </body>
