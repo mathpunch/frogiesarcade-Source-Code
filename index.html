@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ixl</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <div class="main"></div>
+
+    <h1>Welcome To mathpunch V3</h1>
+    <div class="button-container">
+        <h2>Games</h2>
+        <button class="game-button" data-url="https://mathpunch.github.io/grasshopper/">Roblox</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/panda/">BitLife</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/kitty/">Stickmanhook</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/dog/">Super Mario 64</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/bear/">Tiny Fishing</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/snake/">Tap Tap Shots</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/shark/">Drive Mad</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/zebra/">Emulator JS</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/turtle/">Wordle Unlimited</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/doggy/">Fruit Ninja</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/fox/">Rooftop Snipers</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/bat/">Tunnel Rush</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/wolf/">Burrito Bison</button>
+        <button class="game-button" data-url="https://mathpunch.github.io/monkey/">Trash Truck Simulator</button>
+
+        <h2>Games For Emulator JS</h2>
+        <button class="game-button" data-url="https://github.com/ixlmathgg/flashy/raw/main/Mario Kart.zip">DS: Mario Kart</button>
+        <button class="game-button" data-url="https://github.com/ixlmathgg/Licky/raw/main/Pokemon Red Fire.zip">GBA: Pokémon Red Fire</button>
+        <button class="game-button" data-url="https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO Star Wars II.zip">GBA: Lego Star Wars II</button>
+
+        <h2>Proxy</h2>
+        <button class="game-button" data-url="http://campus.rocketpride.com">Server 1</button>
+        <button class="game-button" data-url="http://classroom.rocketpride.com">Server 2</button>
+        <button class="game-button" data-url="http://library.rocketpride.com">Server 3</button>
+        <button class="game-button" data-url="http://portal.rocketpride.com">Server 4</button>
+        <button class="game-button" data-url="http://scholar.rocketpride.com">Server 5</button>
+        <button class="game-button" data-url="http://academy.rocketpride.com">Server 6</button>
+        <button class="game-button" data-url="http://learn.rocketpride.com">Server 7</button>
+        <button class="game-button" data-url="http://projects.rocketpride.com">Server 8</button>
+        <button class="game-button" data-url="http://resources.rocketpride.com">Server 9</button>
+        <button class="game-button" data-url="http://studyhub.rocketpride.com">Server 10</button>
+
+        <h2>Extra</h2>
+        <button class="game-button" data-url="https://auditor.rocketpride.com">Another Unblocked Game Website</button>
+        <button class="game-button" data-url="about:blank">Nothing Here Yet</button>
+
+        <h2>MathPunch AI</h2>
+        <button class="game-button" data-url="https://solixmath.github.io/crab">Click Me</button>
+
+        <h2>Games Requests</h2>
+        <button class="game-button" data-url="https://docs.google.com/forms/d/e/1FAIpQLSc6PG1pB-SmSDqf_gJ_DYWV5HWFtGCcWpgGf2EaS0EpKcICqQ/viewform?usp=sf_link">Click Me</button>
+
+        <h2>Adblocker</h2>
+        <button class="game-button" data-url="https://www.icloud.com/shortcuts/60f5af18cbfe435f886450e6a4c332e5">Click Me</button>
+
+        <h2>Chatting</h2>
+        <button class="game-button" data-url="https://sites.google.com/view/mathpunch">Click Me</button>
+
+        <h2>Backup Links</h2>
+        <button class="game-button" data-url="https://extramath.github.io/">Click Me</button>
+        <button class="game-button" data-url="https://solixmath.github.io">Click Me</button>
+
+        <h2>Prank Shortcut</h2>
+        <button class="game-button" data-url="https://www.icloud.com/shortcuts/4e9a1be2aace434981f58226805be72f">Click Me</button>
+    </div>
+
+    <!-- Iframe container -->
+    <div id="iframeContainer">
+        <iframe id="gameIframe"></iframe>
+    </div>
+
+    <footer>
+        Made By Ozzy
+    </footer>
+
+    <script>
+        // Disable scrolling during loading
+        window.onload = function() {
+            setTimeout(function() {
+                // Fade out the loading screen
+                document.getElementById('loadingScreen').classList.add('fadeOut');
+                // Enable scrolling once the loading screen fades out
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }, 2000); // Wait for 2 seconds before fading out
+        };
+
+        // Function to load game in iframe
+        function loadGameInIframe(url) {
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameIframe = document.getElementById('gameIframe');
+            iframeContainer.style.display = 'block';
+            gameIframe.src = url;
+
+            // Push a new state to the history when the iframe is loaded
+            history.pushState({ iframeOpen: true }, '', '');
+        }
+
+        // Handle the back button functionality
+        window.onpopstate = function(event) {
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameIframe = document.getElementById('gameIframe');
+
+            if (event.state && event.state.iframeOpen) {
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+            } else {
+                // Ensure the iframe is hidden if there's no state
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+                // Ensure the home page elements are displayed
+                document.querySelector('.button-container').style.display = 'block';
+                document.querySelector('h1').style.display = 'block';
+            }
+        };
+
+        // Attach event listeners to buttons
+        document.querySelectorAll('.game-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const gameUrl = this.getAttribute('data-url');
+                loadGameInIframe(gameUrl);
+                // Hide home page elements when a game is loaded
+                document.querySelector('.button-container').style.display = 'none';
+                document.querySelector('h1').style.display = 'none';
+            });
+        });
+
+        // Ensure the iframe is hidden on initial load if there's no state
+        window.addEventListener('load', function() {
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameIframe = document.getElementById('gameIframe');
+
+            if (!history.state || !history.state.iframeOpen) {
+                iframeContainer.style.display = 'none';
+                gameIframe.src = '';
+            }
+        });
+    </script>
+</body>
+</html>
