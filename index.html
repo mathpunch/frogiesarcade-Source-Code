@@ -76,6 +76,7 @@
     <!-- Iframe container -->
     <div id="iframeContainer">
         <iframe id="gameIframe"></iframe>
+        <button id="closeIframe" onclick="closeGame()">X</button>
     </div>
 
     <footer>
@@ -99,49 +100,26 @@
             const gameIframe = document.getElementById('gameIframe');
             iframeContainer.style.display = 'block';
             gameIframe.src = url;
-
-            // Push a new state to the history when the iframe is loaded
-            history.pushState({ iframeOpen: true }, '', '');
         }
 
-        // Handle the back button functionality
-        window.onpopstate = function(event) {
+        // Function to close the game iframe
+        function closeGame() {
             const iframeContainer = document.getElementById('iframeContainer');
             const gameIframe = document.getElementById('gameIframe');
-
-            if (event.state && event.state.iframeOpen) {
-                iframeContainer.style.display = 'none';
-                gameIframe.src = '';
-            } else {
-                // Ensure the iframe is hidden if there's no state
-                iframeContainer.style.display = 'none';
-                gameIframe.src = '';
-                // Ensure the home page elements are displayed
-                document.querySelector('.button-container').style.display = 'block';
-                document.querySelector('h1').style.display = 'block';
-            }
-        };
+            iframeContainer.style.display = 'none';
+            gameIframe.src = '';
+            document.querySelector('.button-container').style.display = 'block';
+            document.querySelector('h1').style.display = 'block';
+        }
 
         // Attach event listeners to buttons
         document.querySelectorAll('.game-button').forEach(button => {
             button.addEventListener('click', function() {
                 const gameUrl = this.getAttribute('data-url');
                 loadGameInIframe(gameUrl);
-                // Hide home page elements when a game is loaded
                 document.querySelector('.button-container').style.display = 'none';
                 document.querySelector('h1').style.display = 'none';
             });
-        });
-
-        // Ensure the iframe is hidden on initial load if there's no state
-        window.addEventListener('load', function() {
-            const iframeContainer = document.getElementById('iframeContainer');
-            const gameIframe = document.getElementById('gameIframe');
-
-            if (!history.state || !history.state.iframeOpen) {
-                iframeContainer.style.display = 'none';
-                gameIframe.src = '';
-            }
         });
     </script>
 </body>
