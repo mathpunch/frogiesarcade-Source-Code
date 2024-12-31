@@ -110,6 +110,9 @@
             gameIframe.src = '';
             document.querySelector('.button-container').style.display = 'block';
             document.querySelector('h1').style.display = 'block';
+            document.querySelectorAll('h2').forEach((h2) => {
+                h2.style.textAlign = 'center';
+            });
         }
 
         // Attach event listeners to buttons
@@ -119,6 +122,9 @@
                 loadGameInIframe(gameUrl);
                 document.querySelector('.button-container').style.display = 'none';
                 document.querySelector('h1').style.display = 'none';
+                document.querySelectorAll('h2').forEach((h2) => {
+                    h2.style.textAlign = 'left';
+                });
             });
         });
     </script>
