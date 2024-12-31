@@ -109,10 +109,8 @@
             const iframeContainer = document.getElementById('iframeContainer');
             const gameIframe = document.getElementById('gameIframe');
 
-            if (event.state && event.state.iframeOpen) {
-                iframeContainer.style.display = 'none';
-                gameIframe.src = '';
-            }
+            iframeContainer.style.display = 'none';
+            gameIframe.src = '';
         };
 
         // Attach event listeners to buttons
