@@ -75,7 +75,6 @@
 
     <!-- Iframe container -->
     <div id="iframeContainer">
-        <button id="closeIframe">Close</button>
         <iframe id="gameIframe"></iframe>
     </div>
 
@@ -100,13 +99,18 @@
             const gameIframe = document.getElementById('gameIframe');
             iframeContainer.style.display = 'block';
             gameIframe.src = url;
+
+            // Push a new state to the history when the iframe is loaded
+            history.pushState({ iframeOpen: true }, '', '');
         }
 
-        // Close iframe function
-        document.getElementById('closeIframe').onclick = function() {
-            const iframeContainer = document.getElementById('iframeContainer');
-            iframeContainer.style.display = 'none';
-            document.getElementById('gameIframe').src = '';
+        // Handle the back button functionality
+        window.onpopstate = function(event) {
+            if (event.state && event.state.iframeOpen) {
+                const iframeContainer = document.getElementById('iframeContainer');
+                iframeContainer.style.display = 'none';
+                document.getElementById('gameIframe').src = '';
+            }
         };
 
         // Attach event listeners to buttons
