@@ -1,0 +1,156 @@
+/* Loading screen styles */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 2s ease; /* Fade-out transition */
+}
+
+.loader {
+    border: 4px solid white; /* Solid white border */
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+    border-top-color: transparent; /* Make top section of the circle transparent */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade out animation */
+#loadingScreen.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 60px;
+    background-color: #000;
+    color: white;
+    overflow: hidden; /* Disable scrolling initially */
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 1.5em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+h2, button, footer {
+    font-family: 'Arial', sans-serif;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 80vh;
+    width: 100%;
+}
+
+button {
+    margin: 15px 0;
+    background-color: #333;
+    color: white;
+    border: 2px solid #555;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Styles for the iframe container */
+#iframeContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10000;
+}
+
+#iframeContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#iframeContainer #closeIframe {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10001;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* New Animated Background */
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    width: 1px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: -42vw -4vh 0px 0px #fff,25vw -41vh 0px 0px #fff,-20vw 49vh 0px 1px #fff,5vw 40vh 1px 1px #fff,29vw 19vh 1px 0px #fff,-44vw -13vh 0px 0px #fff,46vw 41vh 0px 1px #fff,-3vw -45vh 0px 1px #fff,33vw -47vh 0px 1px #fff,5vw -35vh 0px 0px #fff,7vw -20vh 0px 0px #fff,31vw 43vh 0px 0px #fff,10vw -25vh 0px 1px #fff,-42vw 29vh 0px 1px #fff,14vw 11vh 1px 0px #fff,-20vw -9vh 0px 1px #fff,-19vw -16vh 0px 0px #fff,-48vw -50vh 0px 0px #fff,-13vw 39vh 1px 0px #fff,-18vw 2vh 1px 0px #fff,-20vw -37vh 0px 1px #fff,2vw -5vh 0px 1px #fff,-12vw 49vh 0px 0px #fff,12vw -47vh 0px 1px #fff,-15vw 44vh 1px 1px #fff,6vw -36vh 1px 1px #fff,19vw 37vh 1px 1px #fff,20vw 42vh 0px 1px #fff,16vw 39vh 0px 0px #fff,11vw -33vh 1px 1px #fff,41vw -9vh 0px 0px #fff,-38vw 49vh 1px 0px #fff,1vw 25vh 0px 0px #fff,29vw -25vh 1px 1px #fff,41vw 19vh 0px 0px #fff,8vw 4vh 0px 1px #fff;
+    animation: zoom 16s alternate infinite; 
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
