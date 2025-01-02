@@ -90,7 +90,7 @@
                 // Fade out the loading screen
                 document.getElementById('loadingScreen').classList.add('fadeOut');
                 // Enable scrolling once the loading screen fades out
-                document.body.style.overflow = 'auto'; // Enable scrolling
+                document.body.style.overflow = 'auto';
             }, 2000); // Wait for 2 seconds before fading out
         };
 
@@ -100,6 +100,11 @@
             const gameIframe = document.getElementById('gameIframe');
             iframeContainer.style.display = 'block';
             gameIframe.src = url;
+            document.querySelector('.button-container').style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.querySelectorAll('h2').forEach((h2) => {
+                h2.style.textAlign = 'left';
+            });
         }
 
         // Function to close the game iframe
@@ -108,7 +113,7 @@
             const gameIframe = document.getElementById('gameIframe');
             iframeContainer.style.display = 'none';
             gameIframe.src = '';
-            document.querySelector('.button-container').style.display = 'block';
+            document.querySelector('.button-container').style.display = 'flex';
             document.querySelector('h1').style.display = 'block';
             document.querySelectorAll('h2').forEach((h2) => {
                 h2.style.textAlign = 'center';
@@ -120,11 +125,6 @@
             button.addEventListener('click', function() {
                 const gameUrl = this.getAttribute('data-url');
                 loadGameInIframe(gameUrl);
-                document.querySelector('.button-container').style.display = 'none';
-                document.querySelector('h1').style.display = 'none';
-                document.querySelectorAll('h2').forEach((h2) => {
-                    h2.style.textAlign = 'left';
-                });
             });
         });
     </script>
